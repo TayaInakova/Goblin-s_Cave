@@ -19,14 +19,14 @@ function fr(a){/*вывод количества экспы после фраг�
 };
 function sorthp(m,e,b){/*сортировка массива по конкретному элементу В разных направлениях*/
     i=0;
-    let svalka=0;
+    let temporary=0;
     if (b=='<'){
         for (;i<m.length-1;i++){
             for(let j=i+1;j<m.length;j++){
                 if (m[i][e-1]>m[j][e-1]){
-                svalka=m[j];
+                temporary=m[j];
                 m[j]=m[i];
-                m[i]=svalka;
+                m[i]=temporary;
                 };
             };
         };
@@ -35,9 +35,9 @@ function sorthp(m,e,b){/*сортировка массива по конкрет
         for (;i<m.length-1;i++){
             for(let j=i+1;j<m.length;j++){
                 if (m[i][e--]<m[j][e--]){
-                svalka=m[j];
+                temporary=m[j];
                 m[j]=m[i];
-                m[i]=svalka;
+                m[i]=temporary;
                 };
             };
         };
@@ -80,53 +80,53 @@ function d_d(a){
     return d0;
 };
 let s=[],p=0;
-function initiative(n){
-    for (i=0;i<n.length;i++){
-        n[i].initiative=d_20()+n[i].mod_init;
+function initiative(participants){
+    for (i=0;i<participants.length;i++){
+        participants[i].initiative=d_20()+participants[i].mod_init;
     };
-    for (i=0,svalka=0;i<n.length-1;i++){
-        for(let j=i+1;j<n.length;j++){
-            if (n[i].initiative<n[j].initiative){
-            svalka=n[j];
-            n[j]=n[i];
-            n[i]=svalka;
+    for (i=0,temporary=0;i<participants.length-1;i++){
+        for(let j=i+1;j<participants.length;j++){
+            if (participants[i].initiative<participants[j].initiative){
+            temporary=participants[j];
+            participants[j]=participants[i];
+            participants[i]=temporary;
             }
-            else if(n[i].initiative==n[j].initiative){
-                if (n[i].mod_init<n[j].mod_init){
-                    svalka=n[j];
-                    n[j]=n[i];
-                    n[i]=svalka;
+            else if(participants[i].initiative==participants[j].initiative){
+                if (participants[i].mod_init<participants[j].mod_init){
+                    temporary=participants[j];
+                    participants[j]=participants[i];
+                    participants[i]=temporary;
                     };
                 };
         };
     };
-    for(n_init=[],i=0;i<n.length;i++){
-        n_init.push([n[i].character_name,n[i].initiative,n[i].mod_init,n[i].hp]);
+    for(n_init=[],i=0;i<participants.length;i++){
+        n_init.push([participants[i].character_name,participants[i].initiative,participants[i].mod_init,participants[i].hp]);
     };
     console.log(n_init);
 };
-function raund(n,x){ /*один удар по одному врагу в бою один на один*/
-        document.write('<p>Ваша цель сейчас: ',n[2],'</p>');
+function raund(participants,x){ /*один удар по одному врагу в бою один на один*/
+        document.write('<p>Ваша цель сейчас: ',participants[2],'</p>');
         d_20();
         console.log('На кубике:',d20);
         console.log('Вы сносите ',d20,' хитов');
-        if(n[1]>0 && n[1]>=(2*n[0]/3)){
-            n[1]-=d20;
-            console.log('У врага осталось:',n[1]);
+        if(participants[1]>0 && participants[1]>=(2*participants[0]/3)){
+            participants[1]-=d20;
+            console.log('У врага осталось:',participants[1]);
             document.write('<p>Хитрый удар!</p>'); 
         }
-        else if(n[1]>0 && n[1]<(2*n[0]/3) && n[1]>=n[0]/3){
-            n[1]-=d20;
-            console.log('У врага осталось:',n[1]);
+        else if(participants[1]>0 && participants[1]<(2*participants[0]/3) && participants[1]>=participants[0]/3){
+            participants[1]-=d20;
+            console.log('У врага осталось:',participants[1]);
             document.write('<p>Ловкий удар!</p>');
             }
-            else if(n[1]>0 && n[1]<n[0]/3 && n[1]>d20){
-                n[1]-=d20;
-                console.log('У врага осталось:',n[1]);
+            else if(participants[1]>0 && participants[1]<participants[0]/3 && participants[1]>d20){
+                participants[1]-=d20;
+                console.log('У врага осталось:',participants[1]);
                 document.write('<p>Всем ударам удар!</p>');
                 }
-                else if(n[1]>0 && n[1]<=d20){
-                    n[1]-=d20;
+                else if(participants[1]>0 && participants[1]<=d20){
+                    participants[1]-=d20;
                     document.write('<p>Добивающий удар!</p>');
                     dd++;
                     document.write('<p>Этот готов!</p>');
@@ -134,49 +134,49 @@ function raund(n,x){ /*один удар по одному врагу в бою 
                     fr();
                     };
 };
-function fight(n,y,x){/*боёвка(массив врагов, через сколько раундов бой закончится автоматически, экспа за одного врага)*/
-    for(dd=0,r=0;dd<n.length;r++){/*цикл раундов, счётчик трупов*/
+function fight(participants,y,x){/*боёвка(массив врагов, через сколько раундов бой закончится автоматически, экспа за одного врага)*/
+    for(dd=0,r=0;dd<participants.length;r++){/*цикл раундов, счётчик трупов*/
         if(r>=y && y!==0) break;
     console.log('Раунд',r+1);
-    raund(n,x);
+    raund(participants,x);
     };
 };
-function massraund(n,x){ /*раунд боя с несколькими противниками*/
-    for(i=0;i<n.length;i++){
-        if(n[i].hp<=0) continue;
-        console.log('Ходит: ',n[i].character_name);
-        s=n.filter(({hp, fraction}) => hp>0 && fraction !== n[i].fraction);
+function massraund(participants,x){ /*раунд боя с несколькими противниками*/
+    for(i=0;i<participants.length;i++){
+        if(participants[i].hp<=0) continue;
+        console.log('Ходит: ',participants[i].character_name);
+        s=participants.filter(({hp, fraction}) => hp>0 && fraction !== participants[i].fraction);
         p=(Math.floor(Math.random()*s.length));
         console.log('Бьёт: ',s[p].character_name);
         d_20();
-        console.log('На кубике:',d20,' + ',n[i].mod_hit,'итого: ',d20+n[i].mod_hit);
-        if (d20+n[i].mod_hit>=s[p].AC){
-            let uron=d_d(n[i].damage_dice)+n[i].mod_damage;
+        console.log('На кубике:',d20,' + ',participants[i].mod_hit,'итого: ',d20+participants[i].mod_hit);
+        if (d20+participants[i].mod_hit>=s[p].AC){
+            let uron=d_d(participants[i].damage_dice)+participants[i].mod_damage;
             console.log('Снесено ',uron,' хитов');
             if(s[p].hp>0 && s[p].hp>=(2*s[p].full_hp/3)){
-                document.write('<p>',n[i].character_name,' наносит по ',s[p].character_name,' хитрый удар!</p>'); 
+                document.write('<p>',participants[i].character_name,' наносит по ',s[p].character_name,' хитрый удар!</p>'); 
             }
             else if(s[p].hp>0 && s[p].hp<(2*s[p].full_hp/3) && s[p].hp>=s[p].full_hp/3){
-                document.write('<p>',n[i].character_name,' наносит по ',s[p].character_name,' ловкий удар!</p>');
+                document.write('<p>',participants[i].character_name,' наносит по ',s[p].character_name,' ловкий удар!</p>');
                 }
                 else if(s[p].hp>0 && s[p].hp<s[p].full_hp/3 && s[p].hp>uron){
-                    document.write('<p>',n[i].character_name,' наносит по ',s[p].character_name,' всем ударам удар!</p>');
+                    document.write('<p>',participants[i].character_name,' наносит по ',s[p].character_name,' всем ударам удар!</p>');
                     }
                     else if(s[p].hp>0 && s[p].hp<=uron){
-                        document.write('<p>',n[i].character_name,' наносит по ',s[p].character_name,' добивающий удар!</p>');
+                        document.write('<p>',participants[i].character_name,' наносит по ',s[p].character_name,' добивающий удар!</p>');
                     };
                 s[p].hp-=uron;
                 console.log('У врага осталось:',s[p].hp);
                 if (s[p].hp<=0){
                     if (s[p].fraction=='*'){
-                        ds++;
+                        deadAlly++;
                         document.write('<p>Погиб союзник!</p>');
                     }
                     else{
-                        dp++;
+                        deadEnemy++;
                         document.write('<p>Враг убит!</p>');
-                        n[i].experience+=x;
-                        fr(n[i]);
+                        participants[i].experience+=x;
+                        fr(participants[i]);
                     };
                     if (s.length==1){
                         console.log('Бой окончен');
@@ -189,17 +189,17 @@ function massraund(n,x){ /*раунд боя с несколькими прот�
         s.splice(0,s.length);
     };
 };
-function massfight(n,y,x){/*бой с несколькими противниками*/
-    nt=n.filter(({hp}) => hp>0);
-    n=nt;
-    ns=n.filter(({hp,fraction}) => hp>0 && fraction =='*');
-    console.log('Своих: ',ns.length);
-    np=n.filter(({hp,fraction}) => hp>0 && fraction !=='*');
-    console.log('Чужих: ',np.length);
-    initiative(n);
-    for(ds=0,dp=0,r=0;ds<ns.length && dp<np.length;r++){
+function massfight(participants,y,x){/*бой с несколькими противниками*/
+    liveParticipants=participants.filter(({hp}) => hp>0);
+    participants=liveParticipants;
+    comradeArray=participants.filter(({hp,fraction}) => hp>0 && fraction =='*');
+    console.log('Своих: ',comradeArray.length);
+    oppositionArray=participants.filter(({hp,fraction}) => hp>0 && fraction !=='*');
+    console.log('Чужих: ',oppositionArray.length);
+    initiative(participants);
+    for(deadAlly=0,deadEnemy=0,r=0;deadAlly<comradeArray.length && deadEnemy<oppositionArray.length;r++){
     if(r>=y && y!==0) break;
     console.log('Раунд',r+1);
-    massraund(n,x);
+    massraund(participants,x);
     };
 };
