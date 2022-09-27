@@ -1,4 +1,4 @@
-let YOU = new Character(500, 500, "Иосиф", 15, 8, 20, "*", 4, 4, 10, 0);//характеристики героя
+let YOU = new Character(500, 500, "Иосиф", 15, 8, 20, "*", 4, 4, 100, 0);//характеристики героя
 YOU.character_list();
 for (; YOU.experience < 100; YOU.experience += 20) {
     document.write('<p>Привратник: "Ты ещё недостаточно опытен. У тебя всего ', YOU.experience, ' очков опыта. Приходи позже."</p>');
