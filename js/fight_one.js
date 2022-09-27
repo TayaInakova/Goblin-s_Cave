@@ -1,5 +1,5 @@
 document.write('Преисполнившись уверенностью в победе, вы вкладываете все свои силы в последние удары:');
-let hporc = 500, u = 0, dp = 0, ds = 0, np = [], ns = [];
+let hporc = 500, u = 0;
 while (hporc > 250) {
     document.write('<p>Удар!</p>');
     hporc -= 50;

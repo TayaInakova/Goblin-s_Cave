@@ -12,7 +12,16 @@ function Character(chFull_hp, chHP, chCharacter_name, chAC, chDamage_dice, chIni
         this.mod_damage = chMod_damage,//модификатор  к урону
         this.experience = chExperience,//экспа
         this.character_list = function () {
-            console.log("Имя: " + this.character_name + "; Фракция: " + this.fraction + "; Опыт: " + this.experience + "; Хиты: " + this.hp + "/" + this.full_hp + "; Инициатива: кубик D" + this.initiative + "; Класс доспеха: " + this.AC + "; Урон: кубик D" + this.damage_dice + "; Модификатор к инициативе: " + this.mod_init + "; Модификатор к попаданию: " + this.mod_hit + "; Модификатор к урону: " + this.mod_damage);
+            console.log("Имя: " + this.character_name);
+            console.log("Фракция: " + this.fraction);
+            console.log("Опыт: " + this.experience);
+            console.log("Хиты: " + this.hp + "/" + this.full_hp);
+            console.log("Инициатива: кубик D" + this.initiative);
+            console.log("Класс доспеха: " + this.AC);
+            console.log("Урон: кубик D" + this.damage_dice);
+            console.log("Модификатор к инициативе: " + this.mod_init);
+            console.log("Модификатор к попаданию: " + this.mod_hit);
+            console.log("Модификатор к урону: " + this.mod_damage);
         };
 };
 function fr(person) {/*вывод количества экспы после фрага в консоль*/
