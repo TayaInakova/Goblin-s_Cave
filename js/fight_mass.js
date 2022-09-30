@@ -1,4 +1,6 @@
-let Gobbo1 = new Character(20, 18, 'Первый гоблин', 10, 4, 20, '#', 0, 0, 0, 0),
+YOU.character_list();
+let Gobbo = new Character(20, 8, 'Разъярённый гоблин', 10, 4, 20, '#', 0, 0, 0, 0),
+    Gobbo1 = new Character(20, 18, 'Первый гоблин', 10, 4, 20, '#', 0, 0, 0, 0),
     Gobbo2 = new Character(20, 18, 'Второй гоблин', 10, 4, 20, '#', 0, 0, 0, 0),
     Gobbo3 = new Character(20, 19, 'Третий гоблин', 10, 4, 20, '#', 0, 0, 0, 0);
 party = [Gobbo1, Gobbo2, Gobbo3];

@@ -12,9 +12,10 @@ function Character(chFull_hp, chHP, chCharacter_name, chAC, chDamage_dice, chIni
         this.mod_damage = chMod_damage,//модификатор  к урону
         this.experience = chExperience,//экспа
         this.character_list = function () {
+            console.log("");
             console.log("Имя: " + this.character_name);
             console.log("Фракция: " + this.fraction);
-            console.log("Опыт: " + this.experience);
+            //console.log("Опыт: " + this.experience);
             console.log("Хиты: " + this.hp + "/" + this.full_hp);
             console.log("Инициатива: кубик D" + this.initiative);
             console.log("Класс доспеха: " + this.AC);
@@ -22,10 +23,14 @@ function Character(chFull_hp, chHP, chCharacter_name, chAC, chDamage_dice, chIni
             console.log("Модификатор к инициативе: " + this.mod_init);
             console.log("Модификатор к попаданию: " + this.mod_hit);
             console.log("Модификатор к урону: " + this.mod_damage);
+            console.log("");
         };
 };
+
+let YOU = new Character(500, 500, "Иосиф", 15, 8, 20, "*", 4, 4, 5, 0);//характеристики героя
+
 function fr(person) {/*вывод количества экспы после фрага в консоль*/
-    console.log('Фраг! Теперь у вас ', person.experience, ' опыта!')
+    //console.log('Фраг! Теперь у вас ', person.experience, ' опыта!')
 };
 function sorting(array, element, mathOperator) {/*сортировка массива по конкретному элементу В разных направлениях*/
     i = 0;
@@ -150,9 +155,9 @@ function massraund(participants, x) { /*раунд боя с нескольки�
                 }
                 else {
                     deadEnemy++;
-                    document.write('<p>Враг убит!</p>');
-                    participants[i].experience += x;
-                    fr(participants[i]);
+                    document.write('<p>', listOfOpponents[randomEnemy].character_name, ' убит!</p>');
+                    //participants[i].experience += x;
+                    //fr(participants[i]);
                 };
                 if (listOfOpponents.length == 1) {
                     console.log('Бой окончен');

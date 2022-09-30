@@ -1,4 +1,5 @@
 console.log('DAS BUGURT!!!');
+YOU.character_list();
 let Gob01 = new Character(20, 20, 'Первый гоблин', 10, 4, 20, '#', 0, 0, 0, 0),
     Gob02 = new Character(20, 17, 'Второй гоблин', 10, 4, 20, '#', 0, 0, 0, 0),
     Gob03 = new Character(20, 18, 'Третий гоблин', 10, 4, 20, '#', 0, 0, 0, 0),
