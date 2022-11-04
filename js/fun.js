@@ -27,10 +27,8 @@ function Character(chFull_hp, chHP, chCharacter_name, chAC, chDamage_dice, chIni
         };
 };
 
-let YOU = new Character(500, 500, "Иосиф", 15, 8, 20, "*", 4, 4, 5, 0);//характеристики героя
-
 function fr(person) {/*вывод количества экспы после фрага в консоль*/
-    //console.log('Фраг! Теперь у вас ', person.experience, ' опыта!')
+    console.log('Фраг! Теперь у вас ', person.experience, ' опыта!')
 };
 function sorting(array, element, mathOperator) {/*сортировка массива по конкретному элементу В разных направлениях*/
     i = 0;
@@ -147,7 +145,7 @@ function massraund(participants, x) { /*раунд боя с нескольки�
                 document.write('<p>', participants[i].character_name, ' наносит по ', listOfOpponents[randomEnemy].character_name, ' добивающий удар!</p>');
             };
             listOfOpponents[randomEnemy].hp -= uron;
-            console.log('У врага осталось:', listOfOpponents[randomEnemy].hp);
+            console.log('Осталось:', listOfOpponents[randomEnemy].hp);
             if (listOfOpponents[randomEnemy].hp <= 0) {
                 if (listOfOpponents[randomEnemy].fraction == '*') {
                     deadAlly++;
@@ -156,8 +154,8 @@ function massraund(participants, x) { /*раунд боя с нескольки�
                 else {
                     deadEnemy++;
                     document.write('<p>', listOfOpponents[randomEnemy].character_name, ' убит!</p>');
-                    //participants[i].experience += x;
-                    //fr(participants[i]);
+                    participants[i].experience += x;
+                    fr(participants[i]);
                 };
                 if (listOfOpponents.length == 1) {
                     console.log('Бой окончен');

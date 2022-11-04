@@ -1,4 +1,4 @@
-YOU.character_list();
+let temp = JSON.parse(localStorage.getItem("Iosif"));
 document.write('Преисполнившись уверенностью в победе, вы вкладываете все свои силы в последние удары:');
 let hporc = 500, u = 0;
 while (hporc > 250) {
@@ -25,5 +25,6 @@ if (hporc <= 20 && hporc > 0) {
     u++;
 }
 document.write('<p>Это был тяжёлый бой... Понадобилось ', u, ' ударов, чтобы одолеть врага.</p>');
-//YOU.experience += 50;
-//fr(YOU);
+temp.experience += 50;
+fr(temp);
+localStorage.Iosif = JSON.stringify(temp);
