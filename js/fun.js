@@ -15,7 +15,7 @@ function Character(chFull_hp, chHP, chCharacter_name, chAC, chDamage_dice, chIni
             console.log("");
             console.log("Имя: " + this.character_name);
             console.log("Фракция: " + this.fraction);
-            //console.log("Опыт: " + this.experience);
+            console.log("Опыт: " + this.experience);
             console.log("Хиты: " + this.hp + "/" + this.full_hp);
             console.log("Инициатива: кубик D" + this.initiative);
             console.log("Класс доспеха: " + this.AC);

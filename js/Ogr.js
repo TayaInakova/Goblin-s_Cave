@@ -13,5 +13,5 @@ let temp25 = JSON.parse(localStorage.getItem("Gilderoy"));
 let temp26 = JSON.parse(localStorage.getItem("Iosif"));
 let fight = [temp15, temp16, temp17, temp18, temp19, temp20, temp21, temp22, temp23, temp24, temp25, temp26, ogr];
 massfight(fight, 0, 50);
-localStorage.Iosif = JSON.stringify(temp06);
-localStorage.Gilderoy = JSON.stringify(temp08);
+localStorage.Iosif = JSON.stringify(temp26);
+localStorage.Gilderoy = JSON.stringify(temp25);
