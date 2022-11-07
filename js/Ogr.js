@@ -1,0 +1,17 @@
+let ogr = new Character(100, 99, 'Бешеный огр', 5, 8, 20, '@', 0, 0, 2, 0);
+let temp15 = JSON.parse(localStorage.getItem("Gobbo01"));
+let temp16 = JSON.parse(localStorage.getItem("Gobbo02"));
+let temp17 = JSON.parse(localStorage.getItem("Gobbo03"));
+let temp18 = JSON.parse(localStorage.getItem("Gobbo04"));
+let temp19 = JSON.parse(localStorage.getItem("Gobbo05"));
+let temp20 = JSON.parse(localStorage.getItem("Gobbo06"));
+let temp21 = JSON.parse(localStorage.getItem("Gobbo07"));
+let temp22 = JSON.parse(localStorage.getItem("Gobbo08"));
+let temp23 = JSON.parse(localStorage.getItem("Gobbo09"));
+let temp24 = JSON.parse(localStorage.getItem("Gobbo10"));
+let temp25 = JSON.parse(localStorage.getItem("Gilderoy"));
+let temp26 = JSON.parse(localStorage.getItem("Iosif"));
+let fight = [temp15, temp16, temp17, temp18, temp19, temp20, temp21, temp22, temp23, temp24, temp25, temp26, ogr];
+massfight(fight, 0, 50);
+localStorage.Iosif = JSON.stringify(temp06);
+localStorage.Gilderoy = JSON.stringify(temp08);
