@@ -118,7 +118,7 @@ function initiative(participants) {
     console.log(n_init);
 };
 
-let listOfOpponents = [], randomEnemy = 0;
+let listOfOpponents = [], randomEnemy = 0, hits = 0;
 
 function massraund(participants, x) { /*раунд боя с несколькими противниками*/
     for (i = 0; i < participants.length; i++) {
@@ -146,6 +146,13 @@ function massraund(participants, x) { /*раунд боя с нескольки�
             };
             listOfOpponents[randomEnemy].hp -= uron;
             console.log('Осталось:', listOfOpponents[randomEnemy].hp);
+            if (listOfOpponents[randomEnemy].fraction == '*' && listOfOpponents[randomEnemy].hp <= 10 && listOfOpponents[randomEnemy].hp > 0) {
+                document.write('<p>', listOfOpponents[randomEnemy].character_name, ' делает глоток зелья здоровья из походной фляги.</p>');
+                hits += d_8() + d_8();
+                listOfOpponents[randomEnemy].hp += hits;
+                console.log('Восстановлено: ', hits, ' хитов.');
+                console.log('Текущие хиты: ', listOfOpponents[randomEnemy].hp, '/', listOfOpponents[randomEnemy].full_hp);
+            };
             if (listOfOpponents[randomEnemy].hp <= 0) {
                 if (listOfOpponents[randomEnemy].fraction == '*') {
                     deadAlly++;

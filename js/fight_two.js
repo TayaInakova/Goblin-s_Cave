@@ -1,6 +1,7 @@
 let temp00 = JSON.parse(localStorage.getItem("Iosif"));
 let Gobbo = new Character(50, 28, "Разъярённый гоблин", 10, 4, 20, "#", 0, 0, 0, 0);
 Gobbo.character_list();
+console.log("Хиты: " + temp00.hp + "/" + temp00.full_hp);
 let pole = [Gobbo, temp00];
 massfight(pole, 3, 10);
 if (Gobbo.hp > 0) {
