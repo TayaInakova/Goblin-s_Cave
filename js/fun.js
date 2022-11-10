@@ -25,9 +25,9 @@ function Character(chFullHp, chHp, chCharacterNameI, chCharacterNameR, chCharact
             console.log("Инициатива: кубик D" + this.initiative);
             console.log("Класс доспеха: " + this.AC);
             console.log("Урон: кубик D" + this.damageDice);
-            console.log("Модификатор к инициативе: " + this.modInit);
-            console.log("Модификатор к попаданию: " + this.modHit);
-            console.log("Модификатор к урону: " + this.modDamage);
+            console.log("Модификатор к инициативе: +" + this.modInit);
+            console.log("Модификатор к попаданию: +" + this.modHit);
+            console.log("Модификатор к урону: +" + this.modDamage);
             console.log("");
         };
 };

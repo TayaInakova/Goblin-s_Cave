@@ -19,7 +19,7 @@ if (userName != null && userName != 'Иосиф') {
     alert("Кинуть кубы для создания персонажа");
 }
 else {
-    document.write('<p>Вы отказались выбрать имя персонажа. Персонаж будет создан автоматически.</p>')
+    document.write('<p>Персонаж будет создан автоматически.</p>')
 };
 YOU.characterList();
 document.write('<p>Вас зовут: ', YOU.characterNameI, '</p>');
